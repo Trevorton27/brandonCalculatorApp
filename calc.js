@@ -24,73 +24,109 @@ const subtract = document.querySelector('#subtract');
 const add = document.querySelector('#add');
 
 
+let mathArr = [];
+
 
 
 
 // Display Numbers
-zero.addEventListener('click', () => {
-  zero.value = 0;
-calcDisplay.value += zero.value;
+zero.addEventListener('click', function(e)  {
+  this.value = 0;
+  mathArr.push(this.value);
+calcDisplay.value += mathArr.value;
+console.log(mathArr);
 });
 
-one.addEventListener('click', () => {
+one.addEventListener('click', function(e) {
   one.value = 1;
-calcDisplay.value += one.value;
+  mathArr.push(this.value);
+calcDisplay.value += mathArr;
+console.log(mathArr);
 });
 
-two.addEventListener('click', () => {
+two.addEventListener('click', function() {
   two.value = 2;
-calcDisplay.value += two.value;
+  mathArr.push(this.value);
+  calcDisplay.value += mathArr;
+  console.log(mathArr);
+
 });
 
-three.addEventListener('click', () => {
+three.addEventListener('click', function() {
   three.value = 3;
-  calcDisplay.value += three.value;
+  mathArr.push(this.value);
+calcDisplay.value += mathArr;
+  
 });
 
-four.addEventListener('click', () => {
+four.addEventListener('click', function()  {
   four.value = 4;
-calcDisplay.value += four.value;
+  mathArr.push(this.value);
+calcDisplay.value += mathArr;
+
 });
 
-five.addEventListener('click', () => {
+five.addEventListener('click', function() {
   five.value = 5;
-calcDisplay.value += five.value;
+  mathArr.push(this.value);
+calcDisplay.value += mathArr;
+
 });
 
-six.addEventListener('click', () => {
+six.addEventListener('click', function() {
   six.value = 6;
-calcDisplay.value += six.value;
+  mathArr.push(this.value);
+  calcDisplay.value += mathArr;
 });
 
-seven.addEventListener('click', () => {
+seven.addEventListener('click', function() {
   seven.value = 7;
-calcDisplay.value += seven.value;
+  mathArr.push(this.value);
+  calcDisplay.value += mathArr;
 });
 
-eight.addEventListener('click', () => {
+eight.addEventListener('click', function() {
   eight.value = 8;
-calcDisplay.value += eight.value;
+  mathArr.push(this.value);
+  calcDisplay.value += mathArr;
 });
 
-nine.addEventListener('click', () => {
+nine.addEventListener('click', function() {
   nine.value = 9;
-calcDisplay.value += nine.value;
+  mathArr.push(this.value);
+  calcDisplay.value += mathArr;
 });
 
 
+
+// Create new variable function
+// example const numbers = calcDisplay.value (operator) newVariable
+// newVariable is then filled in by next number hit.
+
+const newFunction = function() {
+  calcDisplay.value +=  '.' + numbers;
+}
 
 
 // Operators
 decimal.addEventListener('click', () => {
- console.log('hi');
+ decimal.value = '.';
+ mathArr.push(decimal.value);
+ calcDisplay.value += decimal.value;
+ console.log(mathArr);
+
+  console.log('Test');
 });
 
 equal.addEventListener('click', () => {
+  calcDisplay.value +=  eval(mathArr);
+  
 
 });
 
 division.addEventListener('click', () => {
+console.log('Test');
+
 
 });
 
@@ -114,6 +150,8 @@ add.addEventListener('click', () => {
 // Clear Input
 clrBtn.addEventListener('click', () => {
   calcDisplay.value = '';
+  mathArr = [];
+  console.log(mathArr);
 });
 
 
