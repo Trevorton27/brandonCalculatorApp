@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(48, 185, 151);
+  width: 500px;
+  margin: auto;
+  height: 600px;
+  margin-top: 5%;
+  border: solid black 5px;
+  border-radius: 20px;
+}
+
+.calcHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  border: black solid 3px;
+  width: 80%;
+  height: 5rem;
+  border: none;
+}
+
+#clearBtn {
+  width: 15%;
+  height: 100%;
+  background: orange;
+  font-size: 2rem;
+  font-weight: bold;
+  border: rgb(204, 136, 9) 3px solid;
+}
+
+#clearBtn:hover {
+  background: rgb(207, 79, 29);
+  border: rgb(160, 61, 22) 3px solid;
+  cursor: pointer;
+}
+
+.calcDisplay {
+  max-width: 85%;
+  height: 100%;
+  font-size: 2.5rem;
+  direction: rtl;
+  border: 4px solid black;
+}
+
+.calcDisplay:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.calcBody {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.grid-Container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+.grid-Container button {
+  padding: 1.75rem 2.5rem;
+  border-radius: 50%;
+  border: 3px solid black;
+  font-size: 2.5rem;
+}
+
+.flex-Container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.flex-Container button {
+  padding: 1.75rem 2.5rem;
+  border-radius: 50%;
+  border: 3px solid black;
+  font-size: 2.5rem;
+}
+
+.operators {
+  background-color: peachpuff;
+}
+
+.operators:hover {
+  background-color: rgb(236, 161, 94);
+  cursor: pointer;
+}
+
+.number {
+  background: rgb(73, 216, 216);
+}
+.number:hover {
+  background-color: darkcyan;
+  cursor: pointer;
+}
