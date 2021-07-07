@@ -25,29 +25,29 @@ const add = document.querySelector('#add');
 
 
 let mathArr = [];
-
-
-
+ 
 
 // Display Numbers
 zero.addEventListener('click', function(e)  {
   this.value = 0;
   mathArr.push(this.value);
-calcDisplay.value += mathArr.value;
+calcDisplay.value += this.value;
 console.log(mathArr);
+
 });
 
 one.addEventListener('click', function(e) {
+  calcDisplay.value = '';
   one.value = 1;
   mathArr.push(this.value);
-calcDisplay.value += mathArr;
+calcDisplay.value += this.value;
 console.log(mathArr);
 });
 
 two.addEventListener('click', function() {
   two.value = 2;
   mathArr.push(this.value);
-  calcDisplay.value += mathArr;
+  calcDisplay.value += this.value;
   console.log(mathArr);
 
 });
@@ -55,46 +55,46 @@ two.addEventListener('click', function() {
 three.addEventListener('click', function() {
   three.value = 3;
   mathArr.push(this.value);
-calcDisplay.value += mathArr;
+calcDisplay.value += this.value;
   
 });
 
 four.addEventListener('click', function()  {
   four.value = 4;
   mathArr.push(this.value);
-calcDisplay.value += mathArr;
+calcDisplay.value += this.value;
 
 });
 
 five.addEventListener('click', function() {
   five.value = 5;
   mathArr.push(this.value);
-calcDisplay.value += mathArr;
+calcDisplay.value += this.value;
 
 });
 
 six.addEventListener('click', function() {
   six.value = 6;
   mathArr.push(this.value);
-  calcDisplay.value += mathArr;
+  calcDisplay.value += this.value;
 });
 
 seven.addEventListener('click', function() {
   seven.value = 7;
   mathArr.push(this.value);
-  calcDisplay.value += mathArr;
+  calcDisplay.value += this.value;
 });
 
 eight.addEventListener('click', function() {
   eight.value = 8;
   mathArr.push(this.value);
-  calcDisplay.value += mathArr;
+  calcDisplay.value += this.value;
 });
 
 nine.addEventListener('click', function() {
   nine.value = 9;
   mathArr.push(this.value);
-  calcDisplay.value += mathArr;
+  calcDisplay.value += this.value;
 });
 
 
@@ -103,9 +103,6 @@ nine.addEventListener('click', function() {
 // example const numbers = calcDisplay.value (operator) newVariable
 // newVariable is then filled in by next number hit.
 
-const newFunction = function() {
-  calcDisplay.value +=  '.' + numbers;
-}
 
 
 // Operators
@@ -119,7 +116,11 @@ decimal.addEventListener('click', () => {
 });
 
 equal.addEventListener('click', () => {
-  calcDisplay.value +=  eval(mathArr);
+  parseFloat(mathArr.value);
+  eval(mathArr);
+  calcDisplay.value = mathArr.value;
+
+ 
   
 
 });
@@ -139,7 +140,9 @@ subtract.addEventListener('click', () => {
 });
 
 add.addEventListener('click', () => {
-
+  add.value = '+';
+  mathArr.push(add.value);
+  console.log(mathArr);
 });
 
 
