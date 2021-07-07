@@ -29,7 +29,7 @@ let mathArr = [];
 
 // Display Numbers
 zero.addEventListener('click', function(e)  {
-  this.value = 0;
+  
   mathArr.push(this.value);
 calcDisplay.value += this.value;
 console.log(mathArr);
@@ -37,7 +37,7 @@ console.log(mathArr);
 });
 
 one.addEventListener('click', function(e) {
-  calcDisplay.value = '';
+  
   one.value = 1;
   mathArr.push(this.value);
 calcDisplay.value += this.value;
@@ -140,6 +140,7 @@ subtract.addEventListener('click', () => {
 });
 
 add.addEventListener('click', () => {
+  calcDisplay.value = '';
   add.value = '+';
   mathArr.push(add.value);
   console.log(mathArr);
