@@ -105,6 +105,15 @@ input::-webkit-inner-spin-button {
   background-color: peachpuff;
 }
 
+#equal {
+  background-color: peachpuff;
+}
+
+#equal:hover {
+  background-color: rgb(236, 161, 94);
+  cursor: pointer;
+}
+
 .operators:hover {
   background-color: rgb(236, 161, 94);
   cursor: pointer;

@@ -1,161 +1,86 @@
 'use strict';
 
-
-const clrBtn = document.querySelector('#clearBtn');
 const calcDisplay = document.querySelector('.calcDisplay');
-// Numbers
-const numbers = document.querySelectorAll('.number');
-const zero = document.querySelector('#zero');
-const one = document.querySelector('#one');
-const two = document.querySelector('#two');
-const three = document.querySelector('#three');
-const four = document.querySelector('#four');
-const five = document.querySelector('#five');
-const six = document.querySelector('#six');
-const seven = document.querySelector('#seven');
-const eight = document.querySelector('#eight');
-const nine = document.querySelector('#nine');
-// PEMDAS
-const decimal = document.querySelector('#decimal');
-const equal = document.querySelector('#equal');
-const division = document.querySelector('#divide');
-const multiply = document.querySelector('#multiply');
-const subtract = document.querySelector('#subtract');
-const add = document.querySelector('#add');
 
 
+
+let firstOpperand;
+let secondOpperand;
+let operator;
 let mathArr = [];
  
 
-// Display Numbers
-zero.addEventListener('click', function(e)  {
+// Numbers
+
+// one.addEventListener('click', () =>{
+//    one.value = 1;
+//    mathArr.push(one.value);
+//    calcDisplay.value = one.value;
+//    console.log(mathArr);
+// });
+
+
+
+
+// Notes
+// Digits in own category
+// Operator buttons
+// Single equal button
+// Group each group together in event listener
+
+
+const numbers = document.querySelectorAll('.number')
+for(let i = 0; i < numbers.length; i++){
+  numbers[i].addEventListener('click', () => {
+    numbers[i].value = i;
+
   
-  mathArr.push(this.value);
-calcDisplay.value += this.value;
-console.log(mathArr);
+    mathArr.push(numbers[i].value);
+    calcDisplay.value = numbers[i].value;
+    console.log(mathArr);
+   
+  });
+}
 
-});
+ const operators = document.querySelectorAll('.operators')
+ for(let x = 0; x < operators.length; x++){
+   operators[x].addEventListener('click', () => {
+    //  console.log('Operator Test');
+   });
+ }
 
-one.addEventListener('click', function(e) {
+ const equalBtn = document.querySelector('#equal').addEventListener('click', () => {
+   console.log('Equal Test');
+     parseFloat(mathArr.value);
+  firstOpperand = parseFloat(mathArr[0]);
+  secondOpperand = parseFloat(mathArr[2]);
+  operator = mathArr[1];
   
-  one.value = 1;
-  mathArr.push(this.value);
-calcDisplay.value += this.value;
-console.log(mathArr);
-});
-
-two.addEventListener('click', function() {
-  two.value = 2;
-  mathArr.push(this.value);
-  calcDisplay.value += this.value;
-  console.log(mathArr);
-
-});
-
-three.addEventListener('click', function() {
-  three.value = 3;
-  mathArr.push(this.value);
-calcDisplay.value += this.value;
-  
-});
-
-four.addEventListener('click', function()  {
-  four.value = 4;
-  mathArr.push(this.value);
-calcDisplay.value += this.value;
-
-});
-
-five.addEventListener('click', function() {
-  five.value = 5;
-  mathArr.push(this.value);
-calcDisplay.value += this.value;
-
-});
-
-six.addEventListener('click', function() {
-  six.value = 6;
-  mathArr.push(this.value);
-  calcDisplay.value += this.value;
-});
-
-seven.addEventListener('click', function() {
-  seven.value = 7;
-  mathArr.push(this.value);
-  calcDisplay.value += this.value;
-});
-
-eight.addEventListener('click', function() {
-  eight.value = 8;
-  mathArr.push(this.value);
-  calcDisplay.value += this.value;
-});
-
-nine.addEventListener('click', function() {
-  nine.value = 9;
-  mathArr.push(this.value);
-  calcDisplay.value += this.value;
-});
-
-
-
-// Create new variable function
-// example const numbers = calcDisplay.value (operator) newVariable
-// newVariable is then filled in by next number hit.
-
-
-
-// Operators
-decimal.addEventListener('click', () => {
- decimal.value = '.';
- mathArr.push(decimal.value);
- calcDisplay.value += decimal.value;
- console.log(mathArr);
-
-  console.log('Test');
-});
-
-equal.addEventListener('click', () => {
-  parseFloat(mathArr.value);
-  eval(mathArr);
-  calcDisplay.value = mathArr.value;
-
- 
-  
-
-});
-
-division.addEventListener('click', () => {
-console.log('Test');
-
-
-});
-
-multiply.addEventListener('click', () => {
-
-});
-
-subtract.addEventListener('click', () => {
-
-});
-
-add.addEventListener('click', () => {
-  calcDisplay.value = '';
-  add.value = '+';
-  mathArr.push(add.value);
-  console.log(mathArr);
-});
-
-
-
+//   switch(operator) {
+//     case '+':
+//      return firstOpperand + secondOpperand;
+//       break;
+//     case '-': 
+//      return firstOpperand - secondOpperand;
+//       break;
+//     case '/':
+//      return firstOpperand / secondOpperand;
+//       break;
+//     case '*':
+//      return firstOpperand * secondOpperand;
+//   }
+  const results = a;
+  calcDisplay.value = mathArr;
+  // console.log(mathArr);
+ });
 
 
 
 // Clear Input
-clrBtn.addEventListener('click', () => {
+const clrBtn = document.querySelector('#clearBtn').addEventListener('click', () => {
   calcDisplay.value = '';
   mathArr = [];
-  console.log(mathArr);
+  // console.log('Cleared', mathArr);
 });
 
 
