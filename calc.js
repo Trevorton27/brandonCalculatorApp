@@ -2,76 +2,74 @@
 
 const calcDisplay = document.querySelector('.calcDisplay');
 
-
-
 let firstOpperand;
 let secondOpperand;
 let operator;
 let mathArr = [];
  
-
-// Numbers
-
-// one.addEventListener('click', () =>{
-//    one.value = 1;
-//    mathArr.push(one.value);
-//    calcDisplay.value = one.value;
-//    console.log(mathArr);
-// });
-
-
-
-
-// Notes
-// Digits in own category
-// Operator buttons
-// Single equal button
-// Group each group together in event listener
-
-
+// Number Buttons
 const numbers = document.querySelectorAll('.number')
 for(let i = 0; i < numbers.length; i++){
   numbers[i].addEventListener('click', () => {
-    numbers[i].value = i;
 
-  
-    mathArr.push(numbers[i].value);
-    calcDisplay.value = numbers[i].value;
-    console.log(mathArr);
-   
+ 
+  document.getElementById('zero').value = 0;
+  document.getElementById('one').value = 1;
+  document.getElementById('two').value = 2;
+  document.getElementById('three').value = 3;
+  document.getElementById('four').value = 4;
+  document.getElementById('five').value = 5;
+  document.getElementById('six').value = 6;
+  document.getElementById('seven').value = 7;
+  document.getElementById('eight').value = 8;
+  document.getElementById('nine').value = 9;
+
+  mathArr.push(numbers[i].value);
+  calcDisplay.value += numbers[i].value;
+  console.log(mathArr);
   });
 }
-
+   
+// Operator buttons
  const operators = document.querySelectorAll('.operators')
  for(let x = 0; x < operators.length; x++){
    operators[x].addEventListener('click', () => {
-    //  console.log('Operator Test');
+
+    document.getElementById('divide').value = '/';
+    document.getElementById('multiply').value = '*';
+    document.getElementById('subtract').value = '-';
+    document.getElementById('add').value = '+';
+
+    mathArr.push(operators[x].value);
+    console.log(mathArr);
    });
  }
 
+
+
+
+
  const equalBtn = document.querySelector('#equal').addEventListener('click', () => {
-   console.log('Equal Test');
-     parseFloat(mathArr.value);
+   
+   parseFloat(mathArr.value);
   firstOpperand = parseFloat(mathArr[0]);
   secondOpperand = parseFloat(mathArr[2]);
   operator = mathArr[1];
   
-//   switch(operator) {
-//     case '+':
-//      return firstOpperand + secondOpperand;
-//       break;
-//     case '-': 
-//      return firstOpperand - secondOpperand;
-//       break;
-//     case '/':
-//      return firstOpperand / secondOpperand;
-//       break;
-//     case '*':
-//      return firstOpperand * secondOpperand;
-//   }
-  const results = a;
-  calcDisplay.value = mathArr;
-  // console.log(mathArr);
+  switch(operator) {
+    case '+':
+     return calcDisplay.value = firstOpperand + secondOpperand;
+      break;
+    case '-': 
+     return calcDisplay.value =  firstOpperand - secondOpperand;
+      break;
+    case '/':
+     return calcDisplay.value =  firstOpperand / secondOpperand;
+      break;
+    case '*':
+     return  calcDisplay.value =  firstOpperand * secondOpperand;
+  }
+  console.log('Equal Test');
  });
 
 
