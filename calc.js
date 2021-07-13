@@ -1,16 +1,12 @@
-
-
-
-
 'use strict';
-
 const calcDisplay = document.querySelector('.calcDisplay');
 
 let firstOpperand;
 let secondOpperand;
 let operator;
 let mathArr = [];
-let testArr = [];
+
+
 
 
  
@@ -18,12 +14,6 @@ let testArr = [];
 const numbers = document.querySelectorAll('.number')
 for(let i = 0; i < numbers.length; i++){
   numbers[i].addEventListener('click', () => {
-
-
-    // if(mathArr[0] > 0 && operator != '') {
-    //   calcDisplay.value = '';
-    // }
-
 
   document.getElementById('decimal').value = '.';
   document.getElementById('zero').value = 0;
@@ -39,14 +29,25 @@ for(let i = 0; i < numbers.length; i++){
 
   mathArr.push(numbers[i].value);
   calcDisplay.value += numbers[i].value;
-
-
   mathArr[0] = calcDisplay.value;
-  mathArr.splice(1);
+  // mathArr.splice(1);
+
+  
+for(let i = 1; i < mathArr.length;i++) {
+  switch(mathArr[i]) {
+    case `${mathArr[1]} && ${operator}`:
+     return console.log("Test");
+      break;
+  }
+}
+
+
+
    console.log(mathArr);
   });
 }
-   
+
+
 // Operator buttons
  const operators = document.querySelectorAll('.operators')
  for(let x = 0; x < operators.length; x++){
@@ -86,7 +87,7 @@ for(let i = 0; i < numbers.length; i++){
     case '*':
      return  calcDisplay.value =  firstOpperand * secondOpperand;
   }
-  console.log('Equal Test');
+  // console.log('Equal Test');
  });
 
 
@@ -95,6 +96,7 @@ const clrBtn = document.querySelector('#clearBtn').addEventListener('click', () 
   calcDisplay.value = '';
   mathArr = [];
 });
+
 
 
 
