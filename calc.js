@@ -2,31 +2,27 @@
 
 const calcDisplay = document.querySelector('.calcDisplay');
 let firstOpperand;
-let secondOpperand;
+let secondOpperand ;
 let operator;
 let mathArr = [];
-let mathArr2 = [];
+
 
 const mathOperator = () => {
-  firstOpperand = parseFloat(mathArr[0]); 
-  secondOpperand = parseFloat(mathArr[2]);
-  operator = mathArr[1];
-
-
-  if(mathArr[0] !== undefined && mathArr[1] !== undefined & mathArr[2] !== undefined)
+ 
+  if(firstOpperand != undefined && operator != undefined & secondOpperand != undefined)
 
   switch(operator) {
     case '+':
-     return calcDisplay.value = firstOpperand + secondOpperand;
+     return calcDisplay.value = parseFloat(firstOpperand)  + parseFloat(secondOpperand) ;
       break;
     case '-': 
-     return calcDisplay.value =  firstOpperand - secondOpperand;
+    return calcDisplay.value = parseFloat(firstOpperand)  - parseFloat(secondOpperand) ;
       break;
     case '/':
-     return calcDisplay.value =  firstOpperand / secondOpperand;
+      return calcDisplay.value = parseFloat(firstOpperand)  / parseFloat(secondOpperand) ;
       break;
     case '*':
-     return  calcDisplay.value =  firstOpperand * secondOpperand;
+      return calcDisplay.value = parseFloat(firstOpperand)  * parseFloat(secondOpperand) ;
   }
 };
 
@@ -47,26 +43,21 @@ for(let i = 0; i < numbers.length; i++){
   document.getElementById('nine').value = 9;
   document.getElementById('decimal').value = '.';
 
-  mathArr.push(numbers[i].value);
-  calcDisplay.value += numbers[i].value;
+if(firstOpperand === mathOperator && operator !== undefined){
+  calcDisplay.value = '';
+  calcDisplay.value  += numbers[i].value;
+}
 
  
-  if(mathArr !== undefined && operator !== undefined) {
-    mathArr2.push(numbers[i].value);
-    mathArr2.splice(0);
-    mathArr2[0] = calcDisplay.value;
-    mathArr.splice(2);
-    mathArr = mathArr.concat(mathArr2);
-  } else if (mathArr !== undefined && operator !== undefined && calcDisplay.value == mathArr[0]){
-    calcDisplay.value += numbers[i].value;
-    mathArr2.push(numbers[i].value);
-    mathArr2.splice(0);
-    mathArr2[0] = calcDisplay.value;
-    mathArr.splice(2);
-    mathArr = mathArr.concat(mathArr2);
-  }
+ if(operator === undefined){
+  calcDisplay.value += numbers[i].value;
+  firstOpperand = calcDisplay.value;
+ } else if (firstOpperand !== undefined && operator != undefined){
+   calcDisplay.value  += numbers[i].value;
+    secondOpperand = calcDisplay.value;
+  } 
 
-  console.log(mathArr);
+  console.log(firstOpperand, operator, secondOpperand);
   });
 }
 
@@ -74,40 +65,23 @@ for(let i = 0; i < numbers.length; i++){
  const operators = document.querySelectorAll('.operators')
  for(let x = 0; x < operators.length; x++){
    operators[x].addEventListener('click', () => {
-
  
-   if(mathArr[0] !== undefined && mathArr[1] !== undefined && mathArr[2] !== undefined){
-     mathOperator();
-     mathArr.splice(1)
-     mathArr[0] = calcDisplay.value;
-  } else {
-    mathOperator();
-    mathArr.splice(1)
-    mathArr[0] = calcDisplay.value;
-    calcDisplay.value = '';
-
-  }
-
-
-
-
-
-    //  mathOperator();
-    //  mathArr.splice(1)
-    //  mathArr[0] = calcDisplay.value;
-    //  calcDisplay.value = '';
-
-
-
     document.getElementById('divide').value = '/';
     document.getElementById('multiply').value = '*';
     document.getElementById('subtract').value = '-';
     document.getElementById('add').value = '+';
-    mathArr.push(operators[x].value);
+   operator = operators[x].value;
+   calcDisplay.value = '';
 
 
+   if(firstOpperand != undefined && operator != undefined & secondOpperand != undefined){
+     calcDisplay.value = '';
+     mathOperator();
+      firstOpperand = mathOperator();
+      operator = operators[x].value;
+   } 
    
-    console.log(mathArr);
+    console.log(firstOpperand, operator);
    });
  }
 
@@ -115,10 +89,15 @@ for(let i = 0; i < numbers.length; i++){
 // Equal Button
  const equalBtn = document.querySelector('#equal').addEventListener('click', () => {
    mathOperator();
+   firstOpperand = mathOperator();
+   secondOpperand = undefined;
+   operator = undefined;
  });
 
 // Clear Input
 const clrBtn = document.querySelector('#clearBtn').addEventListener('click', () => {
   calcDisplay.value = '';
-  mathArr = [];
+  firstOpperand = undefined;
+  secondOpperand = undefined;
+  operator = undefined;
 });
